@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinTrack | Swipe Shopping</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a href="#dashboard" class="brand">₹ <span>FinTrack</span></a>
+    <p class="nav-label">WORKSPACE</p>
+    <a class="nav-link active" href="#dashboard">▦ Dashboard</a>
+    <a class="nav-link" href="#shop">💚 Discover products</a>
+    <a class="nav-link" href="#inventory">📦 My purchases</a>
+    <a class="nav-link" href="#activity">↔ Activity</a>
+
+    <div class="wallet">
+      <span>Available balance</span>
+      <h2 id="wallet-balance">₹10,000.00</h2>
+      <button id="add-funds" class="secondary-button" type="button">
+        + Add funds
+      </button>
+    </div>
+
+    <div class="sidebar-bottom">
+      <button id="theme-toggle" class="secondary-button" type="button">
+        ☾ Dark mode
+      </button>
+      <p class="muted">FinTrack · Swipe Shopping</p>
+    </div>
+  </aside>
+
+  <main class="main" id="dashboard">
+    <header class="topbar">
+      <div>
+        <p class="muted">WORKSPACE / MARKETPLACE</p>
+        <h1>Discover & Shop</h1>
+        <p class="muted">Swipe, buy, sell, and track your profit.</p>
+      </div>
+      <a href="#shop" class="primary-button">Start swiping ↓</a>
+    </header>
+
+    <section class="summary-grid">
+      <article class="summary-card balance-card">
+        <p>Available balance</p>
+        <h2 id="balance">₹10,000.00</h2>
+        <span>Your virtual wallet</span>
+      </article>
+      <article class="summary-card">
+        <p>Total purchases</p>
+        <h2 id="spent">₹0.00</h2>
+        <span id="purchase-count">0 products bought</span>
+      </article>
+      <article class="summary-card">
+        <p>Sales revenue</p>
+        <h2 id="revenue" class="positive">₹0.00</h2>
+        <span>Money received from sales</span>
+      </article>
+      <article class="summary-card">
+        <p>Realized profit / loss</p>
+        <h2 id="profit">₹0.00</h2>
+        <span>From completed sales</span>
+      </article>
+    </section>
+
+    <section class="panel shop-panel" id="shop">
+      <div class="panel-heading">
+        <div>
+          <h2>Your next find</h2>
+          <p class="muted">Swipe right to buy · Swipe left to skip</p>
+        </div>
+        <span class="count" id="deck-count">1 / 1</span>
+      </div>
+
+      <div class="shop-toolbar">
+        <input id="product-search" type="search"
+               placeholder="Search products..."
+               aria-label="Search products">
+        <select id="category-filter" aria-label="Filter products">
+          <option value="All">All categories</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Home">Home</option>
+          <option value="Accessories">Accessories</option>
+        </select>
+      </div>
+
+      <div class="swipe-legend">
+        <span class="skip-label">← Skip</span>
+        <span class="like-label">Buy →</span>
+      </div>
+
+      <div class="deck-wrap" id="deck-wrap">
+        <div id="product-deck" class="product-deck"></div>
+        <div id="deck-empty" class="deck-empty" hidden>
+          <div class="empty-emoji">🎉</div>
+          <h3>You're all caught up!</h3>
+          <p>Change your search or category to discover more products.</p>
+          <button id="reset-deck" class="secondary-button" type="button">
+            Start again
+          </button>
+        </div>
+      </div>
+
+      <div class="swipe-controls">
+        <button id="skip-button" class="round-button skip-button"
+                type="button" aria-label="Skip product">✕</button>
+        <button id="buy-button" class="round-button buy-round-button"
+                type="button" aria-label="Buy product">♥</button>
+      </div>
+
+      <p id="shop-message" class="shop-message" role="status"
+         aria-live="polite"></p>
+    </section>
+
+    <section class="panel inventory-panel" id="inventory">
+      <div class="panel-heading">
+        <div>
+          <h2>My purchases</h2>
+          <p class="muted">Sell an item and calculate your actual profit.</p>
+        </div>
+        <span class="count" id="inventory-count">0 items</span>
+      </div>
+      <div id="inventory-list"></div>
+      <div id="inventory-empty" class="empty-state">
+        <div class="empty-emoji">📦</div>
+        <h3>No purchases yet</h3>
+        <p>Swipe right on a product to buy it.</p>
+      </div>
+    </section>
+
+    <section class="panel" id="activity">
+      <div class="panel-heading">
+        <div>
+          <h2>Recent activity</h2>
+          <p class="muted">Your latest purchases and sales.</p>
+        </div>
+      </div>
+      <div id="activity-list"></div>
+      <div id="activity-empty" class="empty-state">
+        <p>No activity yet.</p>
+      </div>
+    </section>
+
+    <p id="message" role="status" aria-live="polite"></p>
+    <footer>FinTrack · HTML, CSS & JavaScript</footer>
+  </main>
+</body>
+</html>
