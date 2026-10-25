@@ -1,4 +1,4 @@
-# Simple Pong game in Python 3 for beginners
+# Simple Pong game in Python for beginners
 # By V.Sudheep Reddy
 # Part 4 : Moving the ball
 
